@@ -1,2 +1,29 @@
-## Workout Web Application (IN PROGRESS)
-A full-stack workout tracking application currently in development. Built with React, FastAPI, and JWT authentication. Planned features include workout logging, progress tracking, and data visualization.
+# Workout Tracker App
+
+A full-stack workout tracking application. **Work in progress.**
+
+## Tech Stack
+
+**Backend**
+- Python / FastAPI
+- SQLAlchemy + SQLite
+- JWT authentication (python-jose)
+- bcrypt password hashing
+
+**Frontend**
+- React + Vite
+- React Router
+- Zustand (global state)
+- Axios (API calls)
+- Recharts (progress charts — planned)
+
+## Status
+**Current Status**
+ User registration and login / DONE
+ JWT authentication / DONE
+ Protected routes / DONE
+ Workout logging endpoint / DONE
+ Workout logging form (frontend) / WIP
+ Dashboard with workout history / WIP
+ Progress charts / WIP
+
