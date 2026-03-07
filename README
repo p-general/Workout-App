@@ -23,7 +23,7 @@ A full-stack workout tracking application. **Work in progress.**
  JWT authentication / DONE
  Protected routes / DONE
  Workout logging endpoint / DONE
- Workout logging form (frontend) / WIP
- Dashboard with workout history / WIP
+ Workout logging form (frontend) / DONE
+ Dashboard with workout history / DONE
  Progress charts / WIP
 
