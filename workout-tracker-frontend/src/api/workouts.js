@@ -1,16 +1,14 @@
-import axios from "axios"
-
-const API_URL = "http://localhost:8000"
+import axiosInstance from "./axiosInstance"
 
 export async function logWorkout(workoutData, token) {
-    const response = await axios.post(`${API_URL}/workouts/`, workoutData, {
+    const response = await axiosInstance.post("/workouts/", workoutData, {
         headers: { Authorization: `Bearer ${token}` }
     })
     return response.data
 }
 
 export async function getWorkouts(token) {
-    const response = await axios.get(`${API_URL}/workouts/`, {
+    const response = await axiosInstance.get("/workouts/", {
         headers: { Authorization: `Bearer ${token}` }
     })
     return response.data
