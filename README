@@ -17,13 +17,47 @@ A full-stack workout tracking application. **Work in progress.**
 - Axios (API calls)
 - Recharts (progress charts — planned)
 
-## Status
-**Current Status**
- User registration and login / DONE
- JWT authentication / DONE
- Protected routes / DONE
- Workout logging endpoint / DONE
- Workout logging form (frontend) / DONE
- Dashboard with workout history / DONE
- Progress charts / WIP
+## Project Structure
+workout-tracker-backend/
+app/
+models/          Database models (User, Workout)
+routes/          API endpoints (auth, workouts)
+schemas/         Pydantic request/response schemas
+api/             Axios instance + interceptors
+auth.py          Password hashing + JWT logic
+database.py      SQLAlchemy setup
+main.py          App entry point
 
+workout-tracker-frontend/
+src/
+api/             Axios API helpers + shared instance
+components/      Shared components (Navbar)
+pages/           Page components (Dashboard, Login, Register, LogWorkout)
+store/           Zustand global auth state
+
+## Setup
+
+**Backend**
+```bash
+cd workout-tracker-backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
+**Frontend**
+cd workout-tracker-frontend
+npm install
+npm run dev
+API runs on http://localhost:8000
+
+Frontend runs on http://localhost:5173
+
+API docs at http://localhost:8000/docs
+
+Features
+ User registration and login
+ JWT authentication with expiry handling
+ Protected routes (redirect to /login if unauthenticated)
+ Log workouts (exercise, sets, reps, weight)
+ Dashboard with workout history
+ Progress charts
+ Styling
