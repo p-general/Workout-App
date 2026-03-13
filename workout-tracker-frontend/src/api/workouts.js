@@ -13,3 +13,9 @@ export async function getWorkouts(token) {
     })
     return response.data
 }
+
+export async function deleteWorkout(workoutId, token) {
+    await axiosInstance.delete(`/workouts/${workoutId}`, {
+        headers: { Authorization: `Bearer ${token}`}
+    })
+}

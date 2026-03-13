@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getWorkouts } from "../api/workouts"
+import { getWorkouts, deleteWorkout } from "../api/workouts"
 import useAuthStore from "../store/authStore"
 
 function Dashboard() {
@@ -19,6 +19,16 @@ function Dashboard() {
         fetchWorkouts()
     }, [token])
 
+    async function handleDelete(workoutId) {
+            try {
+                await deleteWorkout(workoutId, token)
+                setWorkouts(workouts.filter((w) => w.id !== workoutId))
+            }
+            catch (err) {
+                setError("Failed to delete workout.")
+            }
+        }
+
     return (
         <div>
             <h1>Dashboard</h1>
@@ -34,6 +44,7 @@ function Dashboard() {
                             <th>Reps</th>
                             <th>Weight (kg)</th>
                             <th>Date</th>
+                            <th>Delete</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +55,9 @@ function Dashboard() {
                                 <td>{workout.reps}</td>
                                 <td>{workout.weight}</td>
                                 <td>{new Date(workout.logged_at).toLocaleDateString()}</td>
+                                <td>
+                                    <button onClick={() => handleDelete(workout.id)}>Delete</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
