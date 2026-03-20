@@ -1,63 +1,81 @@
-# Workout Tracker App
+# Workout Tracker Web App
 
-A full-stack workout tracking application. **Work in progress.**
+A full-stack fitness tracking application built with React and FastAPI. Users can log workouts, track exercises, and manage their fitness history through a clean and responsive interface.
 
 ## Tech Stack
 
-**Backend**
-- Python / FastAPI
-- SQLAlchemy + SQLite
-- JWT authentication (python-jose)
-- bcrypt password hashing
-
 **Frontend**
-- React + Vite
+- React (Vite)
 - React Router
-- Zustand (global state)
-- Axios (API calls)
-- Recharts (progress charts — planned)
+- CSS
+
+**Backend**
+- FastAPI
+- Python
+- SQLite
+- SQLAlchemy
+- JWT Authentication (bcrypt)
+
+## Features
+
+- User registration and login with secure JWT authentication
+- Create, view, and delete workout sessions
+- Track exercises, sets, reps, and weight per session
+- Protected routes — data is private to each user
+- RESTful API with full CORS configuration
 
 ## Project Structure
-workout-tracker-backend/
-app/
-models/          Database models (User, Workout)
-routes/          API endpoints (auth, workouts)
-schemas/         Pydantic request/response schemas
-api/             Axios instance + interceptors
-auth.py          Password hashing + JWT logic
-database.py      SQLAlchemy setup
-main.py          App entry point
+```
+workout-tracker/
+├── backend/
+│   ├── main.py
+│   ├── models.py
+│   ├── database.py
+│   ├── auth.py
+│   └── routes/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── main.jsx
+│   └── vite.config.js
+└── README.md
+```
 
-workout-tracker-frontend/
-src/
-api/             Axios API helpers + shared instance
-components/      Shared components (Navbar)
-pages/           Page components (Dashboard, Login, Register, LogWorkout)
-store/           Zustand global auth state
+## Getting Started
 
-## Setup
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
 
-**Backend**
+### Backend Setup
 ```bash
-cd workout-tracker-backend
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+uvicorn main:app --reload
+```
 
-**Frontend**
-cd workout-tracker-frontend
+### Frontend Setup
+```bash
+cd frontend
 npm install
 npm run dev
-API runs on http://localhost:8000
+```
 
-Frontend runs on http://localhost:5173
+The app will be running at `http://localhost:5173` and the API at `http://localhost:8000`.
 
-API docs at http://localhost:8000/docs
+## API Endpoints
 
-Features
- User registration and login
- JWT authentication with expiry handling
- Protected routes (redirect to /login if unauthenticated)
- Log workouts (exercise, sets, reps, weight)
- Dashboard with workout history
- Progress charts
- Styling
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Login and receive JWT token |
+| GET | `/workouts` | Get all workouts for current user |
+| POST | `/workouts` | Create a new workout session |
+| DELETE | `/workouts/{id}` | Delete a workout session |
+
+## Screenshots
+
+*Coming soon*
