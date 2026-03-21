@@ -16,7 +16,7 @@ function Login() {
         setError(null)
 
         try {
-            const data = await loginUser(username, passsword)
+            const data = await loginUser(username, password)
             login(data.access_token)
             navigate("/")
         }

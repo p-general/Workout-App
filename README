@@ -77,5 +77,4 @@ The app will be running at `http://localhost:5173` and the API at `http://localh
 | DELETE | `/workouts/{id}` | Delete a workout session |
 
 ## Screenshots
-
-*Coming soon*
+![Alt text](images/image.png)

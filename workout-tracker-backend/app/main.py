@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base
 from app.models import user
 from app.routes import auth
-from app.models import workout
 from app.routes import workout
 
 

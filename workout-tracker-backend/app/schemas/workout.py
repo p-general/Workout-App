@@ -5,7 +5,7 @@ class WorkoutCreate(BaseModel):
     exercise: str
     sets: int
     reps: int
-    weights: float
+    weight: float
 
 class WorkoutResponse(BaseModel):
     id: int
